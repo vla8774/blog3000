@@ -24,10 +24,12 @@
         {% endif %}
       <div class="caption post-detail-item">
         {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
-        <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <small>{{ obj.publish }}</small><small>{{ obj.subject }}</small></h3>
+        <h3><a style="text-decoration: none;" class="text-dark" href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></h3>
+            <small>тема: <a style="text-decoration: none;" class="text-dark" href='{{ obj.subject.get_absolute_url }}'>{{ obj.subject }};</a> </small>
+            <small>опубликованно: {{ obj.publish }}</small>
         {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
         {{ obj.get_markdown|truncatechars_html:600 }}
-        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Читать</a></p>
+        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-light" role="button">Читать полностью</a></p>
       </div>
     <!--</div>
   </div>-->
@@ -43,7 +45,7 @@
         {% endif %}
 
         <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            Страница {{ object_list.number }} из {{ object_list.paginator.num_pages }}.
         </span>
 
         {% if object_list.has_next %}
