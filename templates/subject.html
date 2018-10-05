@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   {% for post in subject %}
+        {{ post.title }}
+    <p><a href="{{post.get_absolute_url}}" > {{ post.title }}</a></p>
+        {% for post in post.result.all %}
+                {{ post.title }}
+         {% endfor %}
+      {% endfor %}
+</body>
+</html>

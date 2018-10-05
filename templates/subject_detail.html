@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h1>{{ subject.title}}</h1>
+        <p>{{ subject.description }}</p>
+
+ {% for result in subject.result.all%}
+            <p><h2><a style="text-decoration: none;" class="text-dark" href="{{result.get_absolute_url}}">{{ result.title}}</a></h2></p>
+            <p>{{result.published_date}}</p>
+            <p align="justify">{{result.text|truncatewords:69 }}
+                <a class="text-dark" class="text-dark" href="{{result.get_absolute_url}}">ЧИТАТЬ ПОЛНОСТЬЮ</a>
+            </p>
+
+
+         {% endfor %}
+
+</body>
+</html>
